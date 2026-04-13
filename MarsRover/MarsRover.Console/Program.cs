@@ -1,4 +1,4 @@
-﻿namespace MarsRover.Console
+﻿namespace MarsRover.ConsoleApp
 {
     internal class Program
     {
