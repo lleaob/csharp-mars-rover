@@ -36,6 +36,50 @@ namespace MarsRover.Tests
 
 
         }
+        [Test]
+        public void NewPlateau_ReturnsZeroPlateauSize_SingleIntInput()
+        {
+            var expected = new PlateauSize(0, 0);
+
+            string rawUserInput = "1";
+
+            var result = parser.NewPlateau(rawUserInput);
+
+            result.ShouldBe(expected);
+        }
+        [Test]
+        public void NewPlateau_ReturnsZeroPlateauSize_MoreThan2IntInput()
+        {
+            var expected = new PlateauSize(0, 0);
+
+            string rawUserInput = "1 2 3";
+
+            var result = parser.NewPlateau(rawUserInput);
+
+            result.ShouldBe(expected);
+        }
+        [Test]
+        public void NewPlateau_ReturnsZeroPlateauSize_2IntInputAndTrailingSpaces()
+        {
+            var expected = new PlateauSize(1, 2);
+
+            string rawUserInput = "1 2                        ";
+
+            var result = parser.NewPlateau(rawUserInput);
+
+            result.ShouldBe(expected);
+        }
+        [Test]
+        public void NewPlateau_ReturnsZeroPlateauSize_2StringsInput() 
+        {
+            var expected = new PlateauSize(0, 0);
+
+            string rawUserInput = "a b";
+
+            var result = parser.NewPlateau(rawUserInput);
+
+            result.ShouldBe(expected);
+        }
 
     }
 }
