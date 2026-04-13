@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "MarsRover.Console": {
+      "commandName": "Project",
+      "commandLineArgs": "30 30\r\n10 10 W\r\nmmmmlrlrmlrmrlfmasrfasrflhkausrlkfmal;skdm"
+    }
+  }
+}

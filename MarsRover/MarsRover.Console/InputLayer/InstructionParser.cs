@@ -44,11 +44,11 @@ namespace MarsRover.ConsoleApp.InputLayer
             }
             if (resultingInstructions.Length > 0) 
             {
-                Console.WriteLine($"Instructions: {resultingInstructions}.");
+                Console.WriteLine($"Final instructions: {resultingInstructions}.");
             } 
             else
             {
-                Console.WriteLine("Instructions: None.");
+                Console.WriteLine("Final instructions: None.");
             }
 
             return instructions;
