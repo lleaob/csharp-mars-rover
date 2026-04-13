@@ -13,7 +13,7 @@ namespace MarsRover.Tests
         [Test]
         public void NewPlateau_ReturnsZeroPlateauSize_EmptyInput()
         {
-            var expected = new int[] {0, 0};
+            var expected = new PlateauSize(0, 0);
 
             string rawUserInput = "";
             
@@ -24,7 +24,7 @@ namespace MarsRover.Tests
         [Test]
         public void NewPlateau_ReturnsNewPlateauWithSpecifiedSize_10and10Input()
         {
-            var expected = new int[] { 10, 10 };
+            var expected = new PlateauSize(10, 10);
 
             string rawUserInput = "10 10";
 
@@ -35,7 +35,7 @@ namespace MarsRover.Tests
         [Test]
         public void NewPlateau_ReturnsZeroPlateauSize_SingleIntInput()
         {
-            var expected = new int[] { 0, 0 };
+            var expected = new PlateauSize(0,0);
 
 
             string rawUserInput = "1";
@@ -47,7 +47,7 @@ namespace MarsRover.Tests
         [Test]
         public void NewPlateau_ReturnsZeroPlateauSize_MoreThan2IntInput()
         {
-            var expected = new int[] { 0, 0 };
+            var expected = new PlateauSize(0, 0);
 
 
             string rawUserInput = "1 2 3";
@@ -59,7 +59,7 @@ namespace MarsRover.Tests
         [Test]
         public void NewPlateau_ReturnsZeroPlateauSize_2IntInputAndTrailingSpaces()
         {
-            var expected = new int[] { 1, 2 };
+            var expected = new PlateauSize(1, 2);
 
             string rawUserInput = "1 2                        ";
 
@@ -70,7 +70,7 @@ namespace MarsRover.Tests
         [Test]
         public void NewPlateau_ReturnsZeroPlateauSize_2StringsInput() 
         {
-            var expected = new int[] { 0, 0 };
+            var expected = new PlateauSize(0, 0);
 
             string rawUserInput = "a b";
 
@@ -81,7 +81,7 @@ namespace MarsRover.Tests
         [Test]
         public void NewPlateau_ReturnsZeroPlateauSize_1StringAnd1IntInput()
         {
-            var expected = new int[] { 0, 0 };
+            var expected = new PlateauSize(0, 0);
 
             string rawUserInput = "1 b";
 

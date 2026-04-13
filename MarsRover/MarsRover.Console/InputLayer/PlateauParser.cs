@@ -9,29 +9,25 @@ namespace MarsRover.ConsoleApp.InputLayer
 {
     public class PlateauParser
     {
-        public int[] NewPlateau(string rawUserInput)
+        public PlateauSize NewPlateau(string rawUserInput)
         {
             string[] strings = rawUserInput.Trim().Split(' ');
-            int[] plateauSize = new int[2];
             try
             {
                 if (strings.Length != 2)
                 {
                     throw new Exception();
                 }
-                for (int i = 0; i < strings.Length; i++)
-                {
-                    plateauSize[i] = int.Parse(strings[i]);
-                }
 
-                Console.WriteLine($"Plateau Dimensions:\r\nX = {plateauSize[0]} : Y = {plateauSize[1]}");
-                return plateauSize;
+                PlateauSize newPlateau = new(int.Parse(strings[0]), int.Parse(strings[1]));
+
+                Console.WriteLine($"Plateau Dimensions:\r\nX = {newPlateau.XBoundary} : Y = {newPlateau.YBoundary}");
+                return newPlateau;
             }
             catch (Exception)
             {
-                plateauSize = new int[] { 0, 0 };
                 Console.WriteLine("Invalid plateau size. Please enter a valid number for X and Y.");
-                return plateauSize;
+                return new PlateauSize(0,0);
             }
         }
     }
