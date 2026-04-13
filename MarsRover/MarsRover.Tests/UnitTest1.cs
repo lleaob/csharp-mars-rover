@@ -8,9 +8,9 @@ namespace MarsRover.Tests
         }
 
         [Test]
-        public void Test1()
+        public void Successfully_runs_a_test()
         {
-            Assert.Pass();
+            Assert.That(true, Is.True);
         }
     }
 }
