@@ -9,7 +9,7 @@ namespace MarsRover.ConsoleApp.InputLayer
 {
     internal class InstructionParser
     {
-        public List<Instruction> Instructions(string[] userInput)
+        public List<Instruction> Instructions(string[] rawUserInput)
         {
             var instructions = new List<Instruction>();
             //instructions.Add(new Instruction(userInput[0].ToString());
