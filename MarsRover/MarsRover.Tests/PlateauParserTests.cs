@@ -20,8 +20,6 @@ namespace MarsRover.Tests
             var result = parser.NewPlateau(rawUserInput);
 
             result.ShouldBe(expected);
-
-
         }
         [Test]
         public void NewPlateau_ReturnsNewPlateauWithSpecifiedSize_10and10Input()
@@ -33,8 +31,6 @@ namespace MarsRover.Tests
             var result = parser.NewPlateau(rawUserInput);
 
             result.ShouldBe(expected);
-
-
         }
         [Test]
         public void NewPlateau_ReturnsZeroPlateauSize_SingleIntInput()

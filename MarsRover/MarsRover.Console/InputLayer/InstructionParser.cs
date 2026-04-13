@@ -12,7 +12,45 @@ namespace MarsRover.ConsoleApp.InputLayer
         public List<Instruction> Instructions(string rawUserInput)
         {
             var instructions = new List<Instruction>();
-            //instructions.Add(new Instruction(userInput[0].ToString());
+
+            // Normalizes user input
+            char[] letters = rawUserInput.Trim().ToUpper().ToCharArray();
+
+            // Parses input into Instruction list
+            foreach (char letter in letters)
+            {
+                switch (letter)
+                {
+                    case 'L':
+                        instructions.Add(Instruction.L);
+                        break;
+                    case 'R':
+                        instructions.Add(Instruction.R);
+                        break;
+                    case 'M':
+                        instructions.Add(Instruction.M);
+                        break;
+                    default:
+                        Console.WriteLine($"Skipping instruction {letter}. Only L, R or M are allowed.");
+                        break;
+                }
+            }
+
+            // Prints result to user
+            string resultingInstructions = String.Empty;
+            foreach (Instruction instruction in instructions)
+            {
+                resultingInstructions += instruction;
+            }
+            if (resultingInstructions.Length > 0) 
+            {
+                Console.WriteLine($"Instructions: {resultingInstructions}.");
+            } 
+            else
+            {
+                Console.WriteLine("Instructions: None.");
+            }
+
             return instructions;
         }
     }
