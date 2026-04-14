@@ -13,22 +13,47 @@ namespace MarsRover.ConsoleApp.LogicLayer
         public int Y = y;
         public CompassDirection Facing = facing;
 
-        //Rotate takes current direction and instruction and modifies direction
-        public CompassDirection Rotate(CompassDirection currentDirection, Instruction instruction)
+        // Rotate takes current direction and instruction and modifies direction
+        public Rover Rotate(Instruction instruction)
         {
+
             switch (instruction)
             {
                 case Instruction.L:
-                    currentDirection = (CompassDirection)(((int)currentDirection + 3) % 4);
+                    Facing = (CompassDirection)(((int)Facing + 3) % 4);
                     break;
 
                 case Instruction.R:
-                    currentDirection = (CompassDirection)(((int)currentDirection + 1) % 4);
+                    Facing = (CompassDirection)(((int)Facing + 1) % 4);
                     break;
             }
-            return currentDirection;
+            return this;
         }
 
+        // Move takes current position and returns updated coordinates
+        public Rover Move()
+        {
+            switch (Facing)
+            {
+                case CompassDirection.N:
+                    Y += 1;
+                    break;
+
+                case CompassDirection.E:
+                    X += 1;
+                    break;
+
+                case CompassDirection.S:
+                    Y -= 1;
+                    break;
+
+                case CompassDirection.W:
+                    X -= 1;
+                    break;
+            }
+
+            return this;
+        }
 
     }
 }
