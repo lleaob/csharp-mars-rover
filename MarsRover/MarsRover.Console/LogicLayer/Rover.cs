@@ -18,27 +18,24 @@ namespace MarsRover.ConsoleApp.LogicLayer
             switch (instruction)
             {
                 case Instruction.L:
-                    Facing = (CompassDirection)(((int)Facing + 3) % 4);
+                    Facing = (CompassDirection)(((int)Facing + 3) % 4); // performing ciclical step by ref'ing the Object's enum by it's number then casting it back to a valid CompassDirection.
                     break;
 
                 case Instruction.R:
                     Facing = (CompassDirection)(((int)Facing + 1) % 4);
                     break;
             }
+            Console.WriteLine($"* Updated Rover *\r\nX = {X}: Y = {Y}: Facing: {Facing}");
+
             return this;
         }
 
-        public void CheckBoundaries()
-        {
-
-        }
-
-        public Rover Move(PlateauSize plateau)
+        public Rover Move(Plateau plateau)
         {
             switch (Facing)
             {
                 case CompassDirection.N:
-                    if (Y == plateau.YBoundary)
+                    if (Y == plateau.Y)
                     {
                         throw new Exception();
                     }
@@ -46,7 +43,7 @@ namespace MarsRover.ConsoleApp.LogicLayer
                     break;
 
                 case CompassDirection.E:
-                    if (X == plateau.XBoundary) 
+                    if (X == plateau.X) 
                     {
                         throw new Exception(); 
                     }
@@ -69,7 +66,7 @@ namespace MarsRover.ConsoleApp.LogicLayer
                     X -= 1;
                     break;
             }
-
+            Console.WriteLine($"* Updated Rover *\r\nX = {X}: Y = {Y}: Facing: {Facing}");
             return this;
         }
 

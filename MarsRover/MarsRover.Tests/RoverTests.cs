@@ -65,7 +65,8 @@ public class RoverTests
     public void Move_Returns01_Position00North()
     {
         var currentRover = new Rover(0, 0, CompassDirection.N);
-        PlateauSize plateau = new(10, 10);
+        Plateau plateau = new(10, 10);
+
         var result = currentRover.Move(plateau);
 
         result.Y.ShouldBe(1);
@@ -75,20 +76,29 @@ public class RoverTests
     public void Move_Returns10_Position00East()
     {
         var currentRover = new Rover(0, 0, CompassDirection.E);
-        PlateauSize plateau = new(10, 10);
+        Plateau plateau = new(10, 10);
+
         var result = currentRover.Move(plateau);
 
         result.X.ShouldBe(1);
 
     }
     [Test]
-    public void Move_Returns00_Position00East()
+    public void Move_ReturnsError_Position00South()
     {
         var currentRover = new Rover(0, 0, CompassDirection.S);
-        PlateauSize plateau = new(10, 10);
-        var result = currentRover.Move(plateau);
+        Plateau plateau = new(10, 10);
 
-        result.Y.ShouldBe(0);
+        Should.Throw<Exception>(() => currentRover.Move(plateau));
+
+    }
+    [Test]
+    public void Move_ReturnsError_Position1010NorthPlateauSize1010()
+    {
+        var currentRover = new Rover(10, 10, CompassDirection.N);
+        Plateau plateau = new(10, 10);
+
+        Should.Throw<Exception>(() => currentRover.Move(plateau));
 
     }
 
