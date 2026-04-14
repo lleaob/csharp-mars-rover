@@ -13,10 +13,8 @@ namespace MarsRover.ConsoleApp.LogicLayer
         public int Y = y;
         public CompassDirection Facing = facing;
 
-        // Rotate takes current direction and instruction and modifies direction
         public Rover Rotate(Instruction instruction)
         {
-
             switch (instruction)
             {
                 case Instruction.L:
@@ -30,24 +28,44 @@ namespace MarsRover.ConsoleApp.LogicLayer
             return this;
         }
 
-        // Move takes current position and returns updated coordinates
-        public Rover Move()
+        public void CheckBoundaries()
+        {
+
+        }
+
+        public Rover Move(PlateauSize plateau)
         {
             switch (Facing)
             {
                 case CompassDirection.N:
+                    if (Y == plateau.YBoundary)
+                    {
+                        throw new Exception();
+                    }
                     Y += 1;
                     break;
 
                 case CompassDirection.E:
+                    if (X == plateau.XBoundary) 
+                    {
+                        throw new Exception(); 
+                    }
                     X += 1;
                     break;
 
                 case CompassDirection.S:
+                    if (Y == 0)
+                    {
+                        throw new Exception();
+                    }
                     Y -= 1;
                     break;
 
                 case CompassDirection.W:
+                    if (X == 0)
+                    {
+                        throw new Exception();
+                    }
                     X -= 1;
                     break;
             }
