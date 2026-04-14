@@ -25,8 +25,6 @@ namespace MarsRover.ConsoleApp.LogicLayer
                     Facing = (CompassDirection)(((int)Facing + 1) % 4);
                     break;
             }
-            Console.WriteLine($"* Updated Rover *\r\nX = {X}: Y = {Y}: Facing: {Facing}");
-
             return this;
         }
 
@@ -66,7 +64,6 @@ namespace MarsRover.ConsoleApp.LogicLayer
                     X -= 1;
                     break;
             }
-            Console.WriteLine($"* Updated Rover *\r\nX = {X}: Y = {Y}: Facing: {Facing}");
             return this;
         }
 

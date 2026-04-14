@@ -12,7 +12,6 @@ namespace MarsRover.ConsoleApp.InputLayer
     {
         public RoverPosition NewRover(string rawUserInput)
         {
-            // Work on this
             string[] strings = rawUserInput.Trim().ToUpper().Split(' ');           
             try
             {
@@ -46,8 +45,6 @@ namespace MarsRover.ConsoleApp.InputLayer
                         break;
                 }
                 RoverPosition newRoverPosition = new(int.Parse(roverPositionX), int.Parse(roverPositionY), roverFacing);
-
-                Console.WriteLine($"New Rover: {newRoverPosition}");
                 return newRoverPosition;
             }
             catch (Exception)

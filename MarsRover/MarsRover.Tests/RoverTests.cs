@@ -101,5 +101,14 @@ public class RoverTests
         Should.Throw<Exception>(() => currentRover.Move(plateau));
 
     }
+    [Test]
+    public void Move_ReturnsError_Position1010EastPlateauSize1010()
+    {
+        var currentRover = new Rover(10, 10, CompassDirection.E);
+        Plateau plateau = new(10, 10);
+
+        Should.Throw<Exception>(() => currentRover.Move(plateau));
+
+    }
 
 }
